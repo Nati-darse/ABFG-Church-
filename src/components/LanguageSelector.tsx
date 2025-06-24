@@ -20,22 +20,19 @@ const LanguageSelector = () => {
   ]
 
   useEffect(() => {
-    // Check if Google Translate is already loaded
-    if (window.google && window.google.translate) {
-      setIsTranslateLoaded(true)
-      return
-    }
+    // Load Google Translate script
+    const loadGoogleTranslate = () => {
+      if (document.querySelector('script[src*="translate.google.com"]')) {
+        return
+      }
 
-    // Load Google Translate script only if not already loaded
-    if (!document.querySelector('script[src*="translate.google.com"]')) {
       const script = document.createElement('script')
       script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
       script.async = true
       document.head.appendChild(script)
 
-      // Initialize Google Translate
       window.googleTranslateElementInit = () => {
-        if (window.google && window.google.translate) {
+        try {
           new window.google.translate.TranslateElement(
             {
               pageLanguage: 'en',
@@ -47,21 +44,63 @@ const LanguageSelector = () => {
             'google_translate_element'
           )
           setIsTranslateLoaded(true)
+        } catch (error) {
+          console.error('Google Translate initialization failed:', error)
         }
       }
     }
+
+    loadGoogleTranslate()
   }, [])
 
   const changeLanguage = (langCode: string, langName: string) => {
     setCurrentLanguage(langName)
     setIsOpen(false)
 
-    // Wait a bit for Google Translate to be ready
+    // Multiple attempts to trigger translation
+    const triggerTranslation = () => {
+      try {
+        // Method 1: Direct select element
+        const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement
+        if (selectElement) {
+          selectElement.value = langCode === 'en' ? '' : langCode
+          selectElement.dispatchEvent(new Event('change', { bubbles: true }))
+          return true
+        }
+
+        // Method 2: Try to find and click the language option
+        const langOptions = document.querySelectorAll('.goog-te-menu2-item span.text')
+        for (let option of langOptions) {
+          if (option.textContent?.includes(langCode === 'am' ? 'Amharic' : 'English')) {
+            (option as HTMLElement).click()
+            return true
+          }
+        }
+
+        // Method 3: Use Google Translate API directly
+        if (window.google && window.google.translate) {
+          const translateElement = window.google.translate.TranslateElement.getInstance()
+          if (translateElement) {
+            translateElement.showBanner(langCode === 'en' ? 'en' : 'am')
+            return true
+          }
+        }
+
+        return false
+      } catch (error) {
+        console.error('Translation trigger failed:', error)
+        return false
+      }
+    }
+
+    // Try multiple times with delays
     setTimeout(() => {
-      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement
-      if (selectElement) {
-        selectElement.value = langCode === 'en' ? '' : langCode
-        selectElement.dispatchEvent(new Event('change', { bubbles: true }))
+      if (!triggerTranslation()) {
+        setTimeout(() => {
+          if (!triggerTranslation()) {
+            setTimeout(triggerTranslation, 1000)
+          }
+        }, 500)
       }
     }, 100)
   }
@@ -75,7 +114,7 @@ const LanguageSelector = () => {
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center space-x-2 px-4 py-2 bg-white/90 hover:bg-white rounded-lg transition-colors text-gray-800 shadow-md"
+          className="flex items-center space-x-2 px-4 py-2 bg-white/95 hover:bg-white rounded-lg transition-colors text-gray-800 shadow-md border border-gray-200"
         >
           <Globe size={18} />
           <span className="text-sm font-medium">{currentLanguage}</span>
@@ -95,11 +134,11 @@ const LanguageSelector = () => {
                   key={lang.code}
                   onClick={() => changeLanguage(lang.code, lang.name)}
                   className={`w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${
-                    currentLanguage === lang.name ? 'bg-blue-50 dark:bg-blue-900/20' : ''
+                    currentLanguage === lang.name ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-900 dark:text-white'
                   }`}
                 >
                   <span className="text-lg">{lang.flag}</span>
-                  <span className="text-gray-900 dark:text-white font-medium">{lang.name}</span>
+                  <span className="font-medium">{lang.name}</span>
                 </button>
               ))}
             </motion.div>

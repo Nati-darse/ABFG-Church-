@@ -50,7 +50,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white dark:bg-gray-900 shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white dark:bg-gray-900 shadow-lg' : 'bg-white/10 backdrop-blur-sm'
     }`}>
       <div className="container-max">
         <div className="flex justify-between items-center py-4">
@@ -62,7 +62,7 @@ const Navbar = () => {
               className="h-10 w-10 object-contain"
             />
             <span className={`text-xl font-bold ${
-              isScrolled ? 'text-gray-900 dark:text-white' : 'text-white'
+              isScrolled ? 'text-gray-900 dark:text-white' : 'text-gray-900'
             }`}>
               Alembank FGC
             </span>
@@ -76,8 +76,8 @@ const Navbar = () => {
                 to={item.path}
                 className={`font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? isScrolled ? 'text-primary-600 dark:text-primary-400' : 'text-blue-300'
-                    : isScrolled ? 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400' : 'text-white hover:text-blue-300'
+                    ? isScrolled ? 'text-blue-600 dark:text-blue-400' : 'text-blue-700'
+                    : isScrolled ? 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' : 'text-gray-800 hover:text-blue-700'
                 }`}
               >
                 {item.name}
@@ -90,7 +90,7 @@ const Navbar = () => {
               className={`p-2 rounded-lg transition-colors ${
                 isScrolled 
                   ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
-                  : 'text-white hover:bg-white/10'
+                  : 'text-gray-800 hover:bg-gray-200/50'
               }`}
               aria-label="Toggle dark mode"
             >
@@ -103,7 +103,7 @@ const Navbar = () => {
             <button
               onClick={toggleDarkMode}
               className={`p-2 rounded-lg ${
-                isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-white'
+                isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-gray-800'
               }`}
               aria-label="Toggle dark mode"
             >
@@ -112,7 +112,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-lg ${
-                isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-white'
+                isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-gray-800'
               }`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -138,8 +138,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md font-medium transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
                 >
                   {item.name}

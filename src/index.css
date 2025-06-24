@@ -53,7 +53,7 @@
   }
 }
 
-/* Google Translate Styles */
+/* Google Translate Styles - Hide all Google elements */
 .goog-te-banner-frame {
   display: none !important;
 }
@@ -66,18 +66,7 @@
   background-color: transparent !important;
   border: none !important;
   font-size: 10pt;
-  display: inline-block;
-  padding: 0 !important;
-  border-radius: 10px;
-  cursor: pointer;
-  zoom: 1;
-}
-
-.goog-te-gadget-simple .goog-te-menu-value {
-  font-size: 12px;
-  color: #666;
-  font-family: arial;
-  vertical-align: middle;
+  display: none !important;
 }
 
 .goog-te-gadget-icon {
@@ -92,25 +81,55 @@ body {
   top: 0px !important;
 }
 
-/* Hide Google Translate elements */
+/* Hide all Google Translate UI elements */
 .skiptranslate {
   display: none !important;
 }
 
-#google_translate_element .goog-te-gadget-simple {
-  border: none !important;
-  background: transparent !important;
+#google_translate_element {
+  display: none !important;
 }
 
-#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
-  color: transparent !important;
+.goog-te-spinner-pos {
+  display: none !important;
 }
 
-#google_translate_element .goog-te-gadget-simple .goog-te-menu-value:before {
-  content: 'Translate' !important;
-  color: #666 !important;
+.goog-te-ftab {
+  display: none !important;
 }
 
-.goog-te-gadget-simple:hover .goog-te-menu-value:before {
-  color: #333 !important;
+.goog-te-menu-frame {
+  display: none !important;
+}
+
+.goog-te-menu2 {
+  display: none !important;
+}
+
+/* Force hide Google Translate bar */
+body > .skiptranslate {
+  display: none !important;
+}
+
+iframe.goog-te-menu-frame {
+  display: none !important;
+}
+
+.goog-te-menu-value span {
+  display: none !important;
+}
+
+/* Override any Google Translate styling */
+.goog-te-gadget-simple .goog-te-menu-value span:first-child {
+  display: none !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value:before {
+  content: none !important;
+}
+
+/* Ensure body positioning is not affected */
+body {
+  position: relative !important;
+  top: 0 !important;
 }

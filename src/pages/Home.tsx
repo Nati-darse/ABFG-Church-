@@ -12,14 +12,14 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-gray-200 to-white">
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
           style={{
             backgroundImage: 'url(https://images.pexels.com/photos/8468/cross-sunset-sunrise-hill.jpg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 via-white/60 to-gray-100/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/60 via-blue-100/40 to-blue-200/60" />
         
         {/* Language Selector - Top Right */}
         <div className="absolute top-24 right-8 z-20">
@@ -34,14 +34,14 @@ const Home = () => {
             className="text-5xl md:text-7xl font-bold mb-6"
           >
             Welcome to
-            <span className="block text-blue-600">Alembank FGC</span>
+            <span className="block text-blue-700">Alembank FGC</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-8 text-gray-700 leading-relaxed"
+            className="text-xl md:text-2xl mb-8 text-gray-800 leading-relaxed"
           >
             A place where faith meets community, and hearts are transformed by God's love
           </motion.p>
@@ -52,9 +52,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link to="/about" className="btn-primary">
+            <Link to="/about" className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
               Learn More About Us
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 inline" />
             </Link>
             <Link to="/services" className="bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
               Join Our Services
@@ -67,7 +67,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-600 animate-bounce"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-700 animate-bounce"
         >
           <ChevronDown size={32} />
         </motion.button>
@@ -97,7 +97,7 @@ const Home = () => {
                 curious about faith, you'll find a warm welcome here. Come as you are, 
                 and discover the transforming power of God's love.
               </p>
-              <Link to="/about" className="btn-primary">
+              <Link to="/about" className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Our Story
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
