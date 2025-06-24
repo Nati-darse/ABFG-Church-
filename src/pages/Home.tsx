@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Heart, Users, Calendar, BookOpen, Pray, ChevronDown } from 'lucide-react'
+import { ArrowRight, Heart, Users, Calendar, BookOpen, SprayCan as Pray, ChevronDown } from 'lucide-react'
 
 const Home = () => {
   const scrollToNext = () => {
