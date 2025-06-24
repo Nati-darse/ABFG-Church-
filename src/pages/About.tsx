@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary-600 to-gold-500 text-white">
+      <section className="section-padding bg-gradient-to-br from-blue-600 to-blue-500 text-white">
         <div className="container-max text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ const About = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white dark:bg-gray-900">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -38,22 +38,22 @@ const About = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Our <span className="text-gradient">Story</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 Alembank Full Gospel Church was established as a branch of the Ethiopian 
                 Full Gospel Believers' Church, with a vision to serve the growing community 
                 in the Alembank area of Addis Ababa. Our church was founded on the principles 
                 of biblical truth, passionate worship, and genuine fellowship.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 From humble beginnings, we have grown into a vibrant community of believers 
                 who are committed to spreading God's love and making a positive impact in 
                 our neighborhood and beyond. Our journey has been marked by God's faithfulness 
                 and the dedication of our members.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 Today, we continue to build on our foundation of faith, welcoming all who 
                 seek to know God and experience His transforming love.
               </p>
@@ -77,7 +77,7 @@ const About = () => {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-800">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -86,7 +86,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Our Mission & <span className="text-gradient">Vision</span>
             </h2>
           </motion.div>
@@ -97,15 +97,15 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-xl shadow-lg"
+              className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg"
             >
               <div className="flex items-center mb-6">
-                <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mr-4">
-                  <Heart className="h-8 w-8 text-primary-600" />
+                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mr-4">
+                  <Heart className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h3>
               </div>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 To glorify God by making disciples of Jesus Christ through passionate worship, 
                 biblical teaching, authentic fellowship, and compassionate service to our 
                 community and the world. We are committed to helping every person discover 
@@ -118,15 +118,15 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-xl shadow-lg"
+              className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg"
             >
               <div className="flex items-center mb-6">
-                <div className="flex items-center justify-center w-16 h-16 bg-gold-100 rounded-full mr-4">
-                  <Globe className="h-8 w-8 text-gold-600" />
+                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mr-4">
+                  <Globe className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Our Vision</h3>
               </div>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 To be a thriving, multicultural church community that transforms lives and 
                 impacts our city for Christ. We envision a church where people from all 
                 backgrounds find hope, healing, and purpose, and where the love of God is 
@@ -138,7 +138,7 @@ const About = () => {
       </section>
 
       {/* Core Values Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white dark:bg-gray-900">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -147,10 +147,10 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Our Core <span className="text-gradient">Values</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               These values guide everything we do as a church community
             </p>
           </motion.div>
@@ -196,13 +196,13 @@ const About = () => {
                 viewport={{ once: true }}
                 className="text-center p-6"
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-6 mx-auto">
-                  <value.icon className="h-8 w-8 text-primary-600" />
+                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-6 mx-auto">
+                  <value.icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>
@@ -212,7 +212,7 @@ const About = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-800">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -221,10 +221,10 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Our <span className="text-gradient">Leadership</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Meet the dedicated leaders who guide our church with wisdom, compassion, and faith
             </p>
           </motion.div>
@@ -256,7 +256,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden card-hover"
+                className="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden card-hover"
               >
                 <img
                   src={leader.image}
@@ -264,13 +264,13 @@ const About = () => {
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {leader.name}
                   </h3>
-                  <p className="text-primary-600 font-medium mb-4">
+                  <p className="text-blue-600 dark:text-blue-400 font-medium mb-4">
                     {leader.role}
                   </p>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {leader.description}
                   </p>
                 </div>
