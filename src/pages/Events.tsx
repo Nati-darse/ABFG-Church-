@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react'
+import { Calendar, Clock, MapPin, Users, ArrowRight, Heart, BookOpen } from 'lucide-react'
 
 const Events = () => {
   const upcomingEvents = [
