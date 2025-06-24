@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Heart, Users, Calendar, BookOpen, SprayCan as Pray, ChevronDown } from 'lucide-react'
+import LanguageSelector from '../components/LanguageSelector'
 
 const Home = () => {
   const scrollToNext = () => {
@@ -11,14 +12,19 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-primary-900 via-primary-800 to-gold-600">
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
             backgroundImage: 'url(https://images.pexels.com/photos/8468/cross-sunset-sunrise-hill.jpg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
           }}
         />
-        <div className="absolute inset-0 bg-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-white/20" />
+        
+        {/* Language Selector - Top Right */}
+        <div className="absolute top-24 right-8 z-20">
+          <LanguageSelector />
+        </div>
         
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <motion.h1 
@@ -28,7 +34,7 @@ const Home = () => {
             className="text-5xl md:text-7xl font-bold mb-6 text-shadow"
           >
             Welcome to
-            <span className="block text-gold-300">Alembank FGC</span>
+            <span className="block text-white">Alembank FGC</span>
           </motion.h1>
           
           <motion.p 
@@ -50,7 +56,7 @@ const Home = () => {
               Learn More About Us
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Link to="/services" className="btn-secondary">
+            <Link to="/services" className="bg-white hover:bg-gray-50 text-blue-600 border-2 border-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105">
               Join Our Services
             </Link>
           </motion.div>
@@ -68,7 +74,7 @@ const Home = () => {
       </section>
 
       {/* Welcome Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white dark:bg-gray-900">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -77,16 +83,16 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Welcome to Our <span className="text-gradient">Church Family</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 Alembank Full Gospel Church is a vibrant community of believers committed to 
                 spreading God's love and serving our community in Addis Ababa. As a branch of 
                 the Ethiopian Full Gospel Believers' Church, we are rooted in biblical truth 
                 and passionate about worship, fellowship, and outreach.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 Whether you're seeking spiritual growth, community connection, or simply 
                 curious about faith, you'll find a warm welcome here. Come as you are, 
                 and discover the transforming power of God's love.
@@ -109,14 +115,14 @@ const Home = () => {
                 alt="Church Community"
                 className="rounded-lg shadow-2xl w-full h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent rounded-lg" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent rounded-lg" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50 dark:bg-gray-800">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -125,10 +131,10 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               What We <span className="text-gradient">Offer</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Discover the many ways you can connect, grow, and serve in our church community
             </p>
           </motion.div>
@@ -178,21 +184,21 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-xl shadow-lg card-hover"
+                className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg card-hover"
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-6 mx-auto">
-                  <feature.icon className="h-8 w-8 text-primary-600" />
+                <div className="flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-6 mx-auto">
+                  <feature.icon className="h-8 w-8 text-primary-600 dark:text-primary-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-center mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 text-center mb-6 leading-relaxed">
                   {feature.description}
                 </p>
                 <div className="text-center">
                   <Link 
                     to={feature.link}
-                    className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center transition-colors"
+                    className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium inline-flex items-center transition-colors"
                   >
                     Learn More
                     <ArrowRight className="ml-1 h-4 w-4" />
@@ -205,7 +211,7 @@ const Home = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="section-padding bg-primary-600 text-white">
+      <section className="section-padding bg-blue-600 dark:bg-blue-800 text-white">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -221,7 +227,7 @@ const Home = () => {
               into our church family and help you grow in faith.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="btn-secondary">
+              <Link to="/contact" className="bg-white hover:bg-gray-50 text-blue-600 border-2 border-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105">
                 Visit Us This Sunday
               </Link>
               <Link to="/prayer-requests" className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 font-medium py-3 px-6 rounded-lg transition-all duration-200">

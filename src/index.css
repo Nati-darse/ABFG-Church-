@@ -10,15 +10,20 @@
   body {
     font-family: 'Inter', sans-serif;
   }
+
+  /* Dark mode styles */
+  .dark {
+    color-scheme: dark;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    @apply bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-primary-600 border-2 border-primary-600 font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105;
+    @apply bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 border-2 border-blue-600 dark:border-blue-400 font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105;
   }
   
   .section-padding {
@@ -30,7 +35,7 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-gold-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent;
   }
   
   .card-hover {
@@ -44,6 +49,45 @@
   }
   
   .bg-overlay {
-    background: linear-gradient(135deg, rgba(6, 95, 161, 0.9) 0%, rgba(245, 158, 11, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
   }
+}
+
+/* Hide Google Translate toolbar */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+.goog-te-menu-value {
+  padding: 3px !important;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border-left: 1px solid #d5d5d5;
+  border-top: 1px solid #9b9b9b;
+  border-bottom: 1px solid #e8e8e8;
+  border-right: 1px solid #d5d5d5;
+  font-size: 10pt;
+  display: inline-block;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  zoom: 1;
+}
+
+body {
+  top: 0px !important;
+}
+
+.goog-te-gadget-icon {
+  display: none;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value {
+  font-size: 12px;
+  color: #666;
+  font-family: arial;
+  vertical-align: middle;
 }

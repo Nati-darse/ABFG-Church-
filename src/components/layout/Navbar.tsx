@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Church } from 'lucide-react'
+import { Menu, X, Moon, Sun } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -15,6 +16,26 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    // Check for saved dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true'
+    setIsDarkMode(savedDarkMode)
+    if (savedDarkMode) {
+      document.documentElement.classList.add('dark')
+    }
+  }, [])
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode
+    setIsDarkMode(newDarkMode)
+    localStorage.setItem('darkMode', newDarkMode.toString())
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -29,15 +50,19 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white dark:bg-gray-900 shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container-max">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Church className={`h-8 w-8 ${isScrolled ? 'text-primary-600' : 'text-white'}`} />
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/image.png" 
+              alt="Alembank FGC Logo" 
+              className="h-10 w-10 object-contain"
+            />
             <span className={`text-xl font-bold ${
-              isScrolled ? 'text-gray-900' : 'text-white'
+              isScrolled ? 'text-gray-900 dark:text-white' : 'text-white'
             }`}>
               Alembank FGC
             </span>
@@ -51,24 +76,48 @@ const Navbar = () => {
                 to={item.path}
                 className={`font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? isScrolled ? 'text-primary-600' : 'text-gold-400'
-                    : isScrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-gold-400'
+                    ? isScrolled ? 'text-primary-600 dark:text-primary-400' : 'text-blue-300'
+                    : isScrolled ? 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400' : 'text-white hover:text-blue-300'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
+            
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-lg transition-colors ${
+                isScrolled 
+                  ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
+                  : 'text-white hover:bg-white/10'
+              }`}
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg ${
-              isScrolled ? 'text-gray-700' : 'text-white'
-            }`}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center space-x-2">
+            <button
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-lg ${
+                isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-white'
+              }`}
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-2 rounded-lg ${
+                isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-white'
+              }`}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -79,7 +128,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white shadow-lg"
+            className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
           >
             <div className="px-4 py-2 space-y-1">
               {navItems.map((item) => (
@@ -89,8 +138,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md font-medium transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
                 >
                   {item.name}
