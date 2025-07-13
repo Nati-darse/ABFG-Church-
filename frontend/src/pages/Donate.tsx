@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Heart, CreditCard, Shield, Users } from 'lucide-react'
+import { Heart, CreditCard, Users, Shield } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
 import { donationService } from '../services/api'
+import toast from 'react-hot-toast'
 
 interface DonationForm {
   amount: number
@@ -17,7 +17,7 @@ interface DonationForm {
 
 const Donate = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<DonationForm>()
+  const { register, handleSubmit, formState: { errors } } = useForm<DonationForm>()
 
   const donationPurposes = [
     { value: 'general', label: 'General Church Fund' },

@@ -1,7 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Calendar, Users, Heart, BookOpen, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Heart, Users, BookOpen, Calendar } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const Home = () => {

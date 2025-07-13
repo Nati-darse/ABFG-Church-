@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Phone, Mail, Clock, Send, Navigation } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { contactService } from '../services/api'
@@ -256,7 +256,7 @@ const Contact = () => {
                     onClick={handleGetDirections}
                     className="btn-primary flex items-center justify-center"
                   >
-                    <Navigation className="h-5 w-5 mr-2" />
+                    <MapPin className="h-5 w-5 mr-2" />
                     Get Directions
                   </button>
                 </div>
