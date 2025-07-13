@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Clock, MapPin, Users, Calendar } from 'lucide-react'
+import { Clock, MapPin, Users, Calendar, Navigation } from 'lucide-react'
+import MapView from '../components/ui/MapView'
 
 const Services = () => {
+  const [showMap, setShowMap] = useState(false)
+
   const services = [
     {
       title: 'Sunday Worship Service',
-      time: '9:00 AM - 11:30 AM',
+      time: '10:00 AM - 12:30 AM',
       description: 'Join us for inspiring worship, biblical teaching, and fellowship',
       features: ['Contemporary Worship', 'Biblical Preaching', 'Prayer Time', 'Fellowship']
     },
     {
-      title: 'Evening Prayer Service',
-      time: '6:00 PM - 7:30 PM',
+      title: 'Morning Prayer Service',
+      time: '8:00 AM - 9:45 AM',
       description: 'A time of focused prayer and spiritual reflection',
       features: ['Intercessory Prayer', 'Worship Songs', 'Testimonies', 'Communion']
     }
@@ -27,20 +31,20 @@ const Services = () => {
     },
     {
       day: 'Wednesday',
-      program: 'Prayer Meeting',
+      program: 'Biblical Teaching',
       time: '6:30 PM - 8:00 PM',
-      description: 'Corporate prayer for church, community, and nation'
-    },
-    {
-      day: 'Friday',
-      program: 'Youth Fellowship',
-      time: '7:00 PM - 9:00 PM',
-      description: 'Young people gathering for worship, games, and growth'
+      description: 'Different types of teachings for all servants '
     },
     {
       day: 'Saturday',
+      program: 'Youth Fellowship',
+      time: '5:30 PM - 7:30 PM',
+      description: 'Young people gathering for worship, games, and growth'
+    },
+    {
+      day: 'Tuesday',
       program: 'Women\'s Ministry',
-      time: '2:00 PM - 4:00 PM',
+      time: '10:00 AM - 12:00 PM',
       description: 'Women supporting each other in faith and life'
     }
   ]
@@ -71,6 +75,13 @@ const Services = () => {
       activities: ['Senior Fellowship', 'Health Ministry', 'Wisdom Sharing', 'Prayer Support']
     }
   ]
+
+  const handleGetDirections = () => {
+    // Open Google Maps with church location
+    const churchAddress = 'Alembank Area, Addis Ababa, Ethiopia'
+    const encodedAddress = encodeURIComponent(churchAddress)
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank')
+  }
 
   return (
     <div className="min-h-screen">
@@ -162,12 +173,52 @@ const Services = () => {
               Childcare is available during all services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">Get Directions</button>
-              <button className="btn-secondary">Contact Us</button>
+              <button 
+                onClick={handleGetDirections}
+                className="btn-primary flex items-center justify-center"
+              >
+                <Navigation className="h-5 w-5 mr-2" />
+                Get Directions
+              </button>
+              <Link to="/contact" className="btn-secondary">
+                Contact Us
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
+
+      {/* Interactive Map Section */}
+      {showMap && (
+        <section className="section-padding bg-gray-50 dark:bg-gray-800">
+          <div className="container-max">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-8"
+            >
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Find Us
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300">
+                Located in the heart of Alembank Area, Addis Ababa
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="card p-4"
+            >
+              <div className="h-96 w-full rounded-lg overflow-hidden">
+                <MapView />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* Weekly Programs */}
       <section className="section-padding bg-gray-50 dark:bg-gray-800">
@@ -290,12 +341,15 @@ const Services = () => {
               God's love in a warm, welcoming community.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200">
-                Plan Your Visit
+              <button 
+                onClick={() => setShowMap(!showMap)}
+                className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              >
+                {showMap ? 'Hide Map' : 'Show Map'}
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200">
+              <Link to="/contact" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200">
                 Contact Us
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

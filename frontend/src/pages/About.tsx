@@ -28,19 +28,19 @@ const About = () => {
 
   const leadership = [
     {
-      name: 'Pastor John Doe',
+      name: 'Pastor Seboka ',
       position: 'Senior Pastor',
       image: '/ch2.jpg',
-      description: 'Leading our church with wisdom and dedication for over 15 years'
+      description: 'Leading our church with wisdom and dedication for a years'
     },
     {
-      name: 'Pastor Jane Smith',
-      position: 'Associate Pastor',
-      image: '/ch3.jpg',
-      description: 'Passionate about youth ministry and community outreach'
+      name: 'Evangelical Isayas ',
+      position: ' Evangelist',
+      image: '/chs1.jpg',
+      description: 'Passionate about youth ministry and healing ministry'
     },
     {
-      name: 'Elder Michael Johnson',
+      name: 'Mergia Bekele ',
       position: 'Church Elder',
       image: '/ch4.jpg',
       description: 'Providing spiritual guidance and leadership to our congregation'
