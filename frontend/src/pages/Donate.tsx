@@ -17,7 +17,7 @@ interface DonationForm {
 
 const Donate = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<DonationForm>()
+  const { register, handleSubmit, formState: { errors } } = useForm<DonationForm>()
 
   const donationPurposes = [
     { value: 'general', label: 'General Church Fund' },

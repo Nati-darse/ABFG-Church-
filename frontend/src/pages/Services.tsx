@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Clock, MapPin, Users, Navigation, Phone, Mail } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { Clock, MapPin, Users, Navigation } from 'lucide-react'
 import MapView from '../components/ui/MapView'
 
 const Services = () => {
