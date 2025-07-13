@@ -33,14 +33,14 @@ const Navbar = () => {
       <div className="container-max">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 -ml-2">
             <img 
               src="/fullgospellogo.png" 
               alt="Alembank Full Gospel Church Logo" 
               className="h-10 w-auto" 
             />
             <span className="text-xl font-bold text-primary-600 dark:text-primary-400">
-              Alembank Church
+              Alembank Full Gospel 
             </span>
           </Link>
 
