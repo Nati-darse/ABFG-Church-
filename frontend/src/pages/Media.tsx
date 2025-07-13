@@ -109,10 +109,10 @@ const Media = () => {
             transition={{ duration: 0.8 }}
           >
             <Image className="h-16 w-16 text-primary-600 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Media Gallery
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
               Explore our collection of photos and videos from church services, 
               events, and community activities.
             </p>

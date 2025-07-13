@@ -56,12 +56,12 @@ const PrayerRequest = () => {
             transition={{ duration: 0.8 }}
           >
             <Heart className="h-16 w-16 text-primary-600 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Prayer Requests
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              We believe in the power of prayer. Share your prayer needs with us, 
-              and our dedicated prayer team will lift you up in prayer.
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+              We believe in the power of prayer. Share your prayer needs with us, and our 
+              dedicated prayer team will lift you up in prayer.
             </p>
           </motion.div>
         </div>

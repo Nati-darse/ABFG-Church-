@@ -73,10 +73,10 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
           >
             <Mail className="h-16 w-16 text-primary-600 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
               We'd love to hear from you. Get in touch with us for any questions, 
               prayer requests, or to learn more about our church community.
             </p>

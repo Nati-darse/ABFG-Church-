@@ -60,10 +60,10 @@ const Donate = () => {
             transition={{ duration: 0.8 }}
           >
             <Heart className="h-16 w-16 text-primary-600 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Support Our Ministry
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
               Your generous donations help us continue our mission of spreading God's love 
               and serving our community. Every contribution makes a difference.
             </p>

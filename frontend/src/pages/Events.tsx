@@ -46,7 +46,7 @@ const Events = () => {
       time: '10:00 AM - 4:00 PM',
       location: 'Church Grounds',
       description: 'A day of fun activities, games, and fellowship for the whole family.',
-      image: '/ch3.jpg',
+      image: '/chy5.jpg',
       category: 'Family Event'
     },
     {
@@ -108,12 +108,12 @@ const Events = () => {
             transition={{ duration: 0.8 }}
           >
             <Calendar className="h-16 w-16 text-primary-600 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Church Events
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Church Events & Programs
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Join us for upcoming events, special services, and regular programs 
-              designed to strengthen our faith and community bonds.
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+              Join us for inspiring events, programs, and activities that strengthen our faith 
+              and build our community.
             </p>
           </motion.div>
         </div>
