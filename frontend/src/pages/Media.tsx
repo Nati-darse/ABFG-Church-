@@ -10,42 +10,42 @@ const Media = () => {
       id: 1,
       title: 'Sunday Worship Service',
       date: '2024-01-15',
-      image: 'https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch1.jpg',
       category: 'Worship'
     },
     {
       id: 2,
       title: 'Youth Fellowship',
       date: '2024-01-12',
-      image: 'https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/chy.jpg',
       category: 'Youth'
     },
     {
       id: 3,
       title: 'Community Outreach',
       date: '2024-01-10',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/chm.jpg',
       category: 'Outreach'
     },
     {
       id: 4,
       title: 'Baptism Service',
       date: '2024-01-08',
-      image: 'https://images.pexels.com/photos/8468464/pexels-photo-8468464.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch2.jpg',
       category: 'Special Events'
     },
     {
       id: 5,
       title: 'Women\'s Ministry',
       date: '2024-01-05',
-      image: 'https://images.pexels.com/photos/7551426/pexels-photo-7551426.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch3.jpg',
       category: 'Ministry'
     },
     {
       id: 6,
       title: 'Family Day',
       date: '2024-01-03',
-      image: 'https://images.pexels.com/photos/8468463/pexels-photo-8468463.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch4.jpg',
       category: 'Family'
     }
   ]
@@ -55,7 +55,7 @@ const Media = () => {
       id: 1,
       title: 'Sunday Service - January 21, 2024',
       date: '2024-01-21',
-      thumbnail: 'https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg?auto=compress&cs=tinysrgb&w=600',
+      thumbnail: '/ch1.jpg',
       duration: '1:45:30',
       views: '1.2K',
       category: 'Sermon'
@@ -64,7 +64,7 @@ const Media = () => {
       id: 2,
       title: 'Youth Conference Highlights',
       date: '2024-01-18',
-      thumbnail: 'https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=600',
+      thumbnail: '/chy2.jpg',
       duration: '25:15',
       views: '856',
       category: 'Youth'
@@ -73,7 +73,7 @@ const Media = () => {
       id: 3,
       title: 'Worship Night - Special Songs',
       date: '2024-01-15',
-      thumbnail: 'https://images.pexels.com/photos/8468463/pexels-photo-8468463.jpeg?auto=compress&cs=tinysrgb&w=600',
+      thumbnail: '/ch5.jpg',
       duration: '35:20',
       views: '2.1K',
       category: 'Worship'
@@ -82,7 +82,7 @@ const Media = () => {
       id: 4,
       title: 'Pastor\'s Message: Faith in Action',
       date: '2024-01-12',
-      thumbnail: 'https://images.pexels.com/photos/8468464/pexels-photo-8468464.jpeg?auto=compress&cs=tinysrgb&w=600',
+      thumbnail: '/ch2.jpg',
       duration: '42:10',
       views: '1.8K',
       category: 'Sermon'

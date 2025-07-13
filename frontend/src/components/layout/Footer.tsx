@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Church Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/cross-icon.svg" alt="Church Logo" className="h-8 w-8 filter invert" />
+              <img src="/fullgospellogo.png" alt="Church Logo" className="h-8 w-auto filter invert" />
               <span className="text-xl font-bold">Alembank Full Gospel Church</span>
             </div>
             <p className="text-gray-300 mb-4">

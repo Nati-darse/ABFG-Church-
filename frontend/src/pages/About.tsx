@@ -30,19 +30,19 @@ const About = () => {
     {
       name: 'Pastor John Doe',
       position: 'Senior Pastor',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/ch2.jpg',
       description: 'Leading our church with wisdom and dedication for over 15 years'
     },
     {
       name: 'Pastor Jane Smith',
       position: 'Associate Pastor',
-      image: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/ch3.jpg',
       description: 'Passionate about youth ministry and community outreach'
     },
     {
       name: 'Elder Michael Johnson',
       position: 'Church Elder',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/ch4.jpg',
       description: 'Providing spiritual guidance and leadership to our congregation'
     }
   ]
@@ -104,7 +104,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/ch5.jpg"
                 alt="Church History"
                 className="rounded-lg shadow-lg w-full h-96 object-cover"
               />

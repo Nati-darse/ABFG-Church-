@@ -35,9 +35,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/cross-icon.svg" 
-              alt="Church Logo" 
-              className="h-8 w-8 text-primary-600 dark:text-primary-400" 
+              src="/fullgospellogo.png" 
+              alt="Alembank Full Gospel Church Logo" 
+              className="h-10 w-auto" 
             />
             <span className="text-xl font-bold text-primary-600 dark:text-primary-400">
               Alembank Church

@@ -10,7 +10,7 @@ const Events = () => {
       time: '9:00 AM - 12:00 PM',
       location: 'Main Sanctuary',
       description: 'Join us for a special Easter celebration with worship, testimonies, and fellowship.',
-      image: 'https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch1.jpg',
       category: 'Special Service'
     },
     {
@@ -19,7 +19,7 @@ const Events = () => {
       time: '6:00 PM - 9:00 PM',
       location: 'Church Hall',
       description: 'A powerful conference for young people featuring inspiring speakers and worship.',
-      image: 'https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/chy.jpg',
       category: 'Youth Event'
     },
     {
@@ -28,7 +28,7 @@ const Events = () => {
       time: '8:00 AM - 4:00 PM',
       location: 'Various Locations',
       description: 'Join us as we serve our community through various outreach activities.',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/chm.jpg',
       category: 'Outreach'
     },
     {
@@ -37,7 +37,7 @@ const Events = () => {
       time: '9:00 AM - 5:00 PM',
       location: 'Retreat Center',
       description: 'A day of spiritual renewal, fellowship, and growth for women of all ages.',
-      image: 'https://images.pexels.com/photos/7551426/pexels-photo-7551426.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch2.jpg',
       category: 'Women\'s Ministry'
     },
     {
@@ -46,7 +46,7 @@ const Events = () => {
       time: '10:00 AM - 4:00 PM',
       location: 'Church Grounds',
       description: 'A day of fun activities, games, and fellowship for the whole family.',
-      image: 'https://images.pexels.com/photos/8468463/pexels-photo-8468463.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch3.jpg',
       category: 'Family Event'
     },
     {
@@ -55,7 +55,7 @@ const Events = () => {
       time: '11:00 AM - 1:00 PM',
       location: 'Main Sanctuary',
       description: 'Witness and celebrate as new believers take their next step in faith.',
-      image: 'https://images.pexels.com/photos/8468464/pexels-photo-8468464.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/ch4.jpg',
       category: 'Special Service'
     }
   ]

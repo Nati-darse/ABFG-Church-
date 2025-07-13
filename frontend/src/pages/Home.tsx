@@ -86,7 +86,7 @@ const Home = () => {
               className="relative"
             >
               <img
-                src="https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/ch1.jpg"
                 alt="Church Community"
                 className="rounded-lg shadow-2xl w-full h-96 object-cover"
               />

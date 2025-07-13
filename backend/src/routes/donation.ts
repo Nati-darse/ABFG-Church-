@@ -39,8 +39,30 @@ router.post('/initialize', donationValidation, async (req, res) => {
       isAnonymous = false
     } = req.body
 
+    // Check if required environment variables are set
+    if (!process.env.CHAPA_SECRET_KEY) {
+      console.error('❌ CHAPA_SECRET_KEY is not set in environment variables')
+      return res.status(500).json({
+        success: false,
+        message: 'Payment service is not configured. Please contact the administrator.'
+      })
+    }
+
+    if (!process.env.FRONTEND_URL) {
+      console.warn('⚠️ FRONTEND_URL is not set, using default callback URLs')
+    }
+
     // Generate unique transaction ID
     const transactionId = `AFBC_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+
+    console.log('🔍 Initializing donation:', {
+      firstName,
+      lastName,
+      email,
+      amount,
+      purpose,
+      transactionId
+    })
 
     // Create donation record
     const donation = new Donation({
@@ -56,9 +78,10 @@ router.post('/initialize', donationValidation, async (req, res) => {
     })
 
     await donation.save()
+    console.log('✅ Donation record saved to database')
 
     // Initialize Chapa payment
-    const chapaResponse = await initializeChapa({
+    const chapaData = {
       amount,
       currency: 'ETB',
       email,
@@ -66,14 +89,19 @@ router.post('/initialize', donationValidation, async (req, res) => {
       last_name: lastName,
       phone_number: phone,
       tx_ref: transactionId,
-      callback_url: `${process.env.FRONTEND_URL}/donation/callback`,
-      return_url: `${process.env.FRONTEND_URL}/donation/success`,
+      callback_url: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/donation/callback`,
+      return_url: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/donation/success`,
       customization: {
         title: 'Alembank Full Gospel Church Donation',
         description: `Donation for ${purpose}`,
-        logo: `${process.env.FRONTEND_URL}/cross-icon.svg`
+        logo: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/fullgospellogo.png`
       }
-    })
+    }
+
+    console.log('🔍 Initializing Chapa payment with data:', chapaData)
+
+    const chapaResponse = await initializeChapa(chapaData)
+    console.log('✅ Chapa response received:', chapaResponse)
 
     if (chapaResponse.status === 'success') {
       // Update donation with Chapa reference
@@ -101,10 +129,27 @@ router.post('/initialize', donationValidation, async (req, res) => {
     }
 
   } catch (error) {
-    console.error('Donation initialization error:', error)
+    console.error('❌ Donation initialization error:', error)
+    
+    // Provide more specific error messages
+    if (error.message.includes('CHAPA_SECRET_KEY')) {
+      return res.status(500).json({
+        success: false,
+        message: 'Payment service is not configured. Please contact the administrator.'
+      })
+    }
+    
+    if (error.message.includes('network') || error.message.includes('ECONNREFUSED')) {
+      return res.status(500).json({
+        success: false,
+        message: 'Payment service is temporarily unavailable. Please try again later.'
+      })
+    }
+
     res.status(500).json({
       success: false,
-      message: 'Failed to initialize donation'
+      message: 'Failed to initialize donation',
+      error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
     })
   }
 })
@@ -275,6 +320,62 @@ router.post('/webhook', express.raw({ type: 'application/json' }), async (req, r
   } catch (error) {
     console.error('Webhook error:', error)
     res.status(500).json({ error: 'Webhook processing failed' })
+  }
+})
+
+// Test route to check donation system status
+router.get('/test', async (req, res) => {
+  try {
+    const status = {
+      database: 'unknown',
+      chapa: 'unknown',
+      environment: {
+        CHAPA_SECRET_KEY: process.env.CHAPA_SECRET_KEY ? 'set' : 'not set',
+        FRONTEND_URL: process.env.FRONTEND_URL || 'not set',
+        NODE_ENV: process.env.NODE_ENV || 'development'
+      }
+    }
+
+    // Test database connection
+    try {
+      await Donation.findOne().limit(1)
+      status.database = 'connected'
+    } catch (dbError) {
+      status.database = 'error'
+      console.error('Database test error:', dbError)
+    }
+
+    // Test Chapa connection
+    try {
+      if (process.env.CHAPA_SECRET_KEY) {
+        // Make a simple test request to Chapa
+        const response = await fetch('https://api.chapa.co/v1/transaction/verify/test', {
+          headers: {
+            'Authorization': `Bearer ${process.env.CHAPA_SECRET_KEY}`,
+            'Content-Type': 'application/json'
+          }
+        })
+        status.chapa = response.status === 401 ? 'configured' : 'error'
+      } else {
+        status.chapa = 'not configured'
+      }
+    } catch (chapaError) {
+      status.chapa = 'error'
+      console.error('Chapa test error:', chapaError)
+    }
+
+    res.json({
+      success: true,
+      message: 'Donation system status',
+      data: status
+    })
+  } catch (error) {
+    console.error('Test route error:', error)
+    res.status(500).json({
+      success: false,
+      message: 'Failed to check system status',
+      error: error.message
+    })
   }
 })
 

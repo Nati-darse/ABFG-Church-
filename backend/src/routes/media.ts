@@ -39,7 +39,7 @@ const mockPhotos = [
     id: 1,
     title: 'Sunday Worship Service',
     date: '2024-01-15',
-    image: 'https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/ch1.jpg',
     category: 'Worship',
     description: 'Beautiful moments from our Sunday worship service'
   },
@@ -47,7 +47,7 @@ const mockPhotos = [
     id: 2,
     title: 'Youth Fellowship',
     date: '2024-01-12',
-    image: 'https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/chy.jpg',
     category: 'Youth',
     description: 'Young people gathering for fellowship and growth'
   },
@@ -55,9 +55,33 @@ const mockPhotos = [
     id: 3,
     title: 'Community Outreach',
     date: '2024-01-10',
-    image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/chm.jpg',
     category: 'Outreach',
     description: 'Serving our community with love and compassion'
+  },
+  {
+    id: 4,
+    title: 'Baptism Service',
+    date: '2024-01-08',
+    image: '/ch2.jpg',
+    category: 'Special Events',
+    description: 'Celebrating new believers in Christ'
+  },
+  {
+    id: 5,
+    title: 'Women\'s Ministry',
+    date: '2024-01-05',
+    image: '/ch3.jpg',
+    category: 'Ministry',
+    description: 'Women growing together in faith'
+  },
+  {
+    id: 6,
+    title: 'Family Day',
+    date: '2024-01-03',
+    image: '/ch4.jpg',
+    category: 'Family',
+    description: 'Families enjoying fellowship together'
   }
 ]
 
@@ -67,7 +91,7 @@ const mockVideos = [
     id: 1,
     title: 'Sunday Service - January 21, 2024',
     date: '2024-01-21',
-    thumbnail: 'https://images.pexels.com/photos/8468470/pexels-photo-8468470.jpeg?auto=compress&cs=tinysrgb&w=600',
+    thumbnail: '/ch1.jpg',
     duration: '1:45:30',
     views: 1200,
     category: 'Sermon',
@@ -78,12 +102,34 @@ const mockVideos = [
     id: 2,
     title: 'Youth Conference Highlights',
     date: '2024-01-18',
-    thumbnail: 'https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=600',
+    thumbnail: '/chy2.jpg',
     duration: '25:15',
     views: 856,
     category: 'Youth',
     videoUrl: '#',
     description: 'Highlights from our youth conference'
+  },
+  {
+    id: 3,
+    title: 'Mission Outreach',
+    date: '2024-01-15',
+    thumbnail: '/chm2.jpg',
+    duration: '35:20',
+    views: 2100,
+    category: 'Outreach',
+    videoUrl: '#',
+    description: 'Our mission activities in the community'
+  },
+  {
+    id: 4,
+    title: 'Pastor\'s Message: Faith in Action',
+    date: '2024-01-12',
+    thumbnail: '/ch5.jpg',
+    duration: '42:10',
+    views: 1800,
+    category: 'Sermon',
+    videoUrl: '#',
+    description: 'Inspiring message about living out our faith'
   }
 ]
 
