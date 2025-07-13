@@ -77,8 +77,8 @@ const Services = () => {
   ]
 
   const handleGetDirections = () => {
-    // Open Google Maps with church location
-    const churchAddress = 'Alembank Area, Addis Ababa, Ethiopia'
+    // Open Google Maps with church location - XMVJ+C2M, Addis Ababa
+    const churchAddress = 'XMVJ+C2M, Addis Ababa, Ethiopia'
     const encodedAddress = encodeURIComponent(churchAddress)
     window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank')
   }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Send, Navigation } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { contactService } from '../services/api'
+import MapView from '../components/ui/MapView'
 
 interface ContactForm {
   name: string
@@ -21,7 +22,7 @@ const Contact = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: 'Address',
-      details: ['Alembank Area', 'Addis Ababa, Ethiopia']
+      details: ['XMVJ+C2M, Addis Ababa', 'Alembank Area, Ethiopia']
     },
     {
       icon: <Phone className="h-6 w-6" />,
@@ -39,6 +40,13 @@ const Contact = () => {
       details: ['Mon - Fri: 9:00 AM - 5:00 PM', 'Sat: 9:00 AM - 2:00 PM']
     }
   ]
+
+  const handleGetDirections = () => {
+    // Open Google Maps with church location - XMVJ+C2M, Addis Ababa
+    const churchAddress = 'XMVJ+C2M, Addis Ababa, Ethiopia'
+    const encodedAddress = encodeURIComponent(churchAddress)
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank')
+  }
 
   const onSubmit = async (data: ContactForm) => {
     setIsLoading(true)
@@ -230,26 +238,25 @@ const Contact = () => {
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                   Find Us
                 </h2>
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-96 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-16 w-16 text-primary-600 mx-auto mb-4" />
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Interactive map will be integrated here
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                      Alembank Area, Addis Ababa, Ethiopia
-                    </p>
-                  </div>
+                <div className="h-96 rounded-lg overflow-hidden mb-6">
+                  <MapView />
                 </div>
                 <div className="mt-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Directions
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    We are located in the heart of Alembank area, easily accessible by public transport. 
-                    Look for the church building with the cross sign.
+                    We are located at XMVJ+C2M in the heart of Alembank area, Addis Ababa. 
+                    The church is easily accessible by public transport including buses and minibuses. 
+                    Look for our distinctive church building with the cross sign and the "Alembank Full Gospel Church" 
+                    signboard. We're situated near the main road, making it convenient for visitors to find us. 
+                    Parking is available on the church premises for those driving.
                   </p>
-                  <button className="btn-primary">
+                  <button 
+                    onClick={handleGetDirections}
+                    className="btn-primary flex items-center justify-center"
+                  >
+                    <Navigation className="h-5 w-5 mr-2" />
                     Get Directions
                   </button>
                 </div>

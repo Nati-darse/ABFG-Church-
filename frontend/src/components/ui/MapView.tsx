@@ -17,6 +17,7 @@ const defaultIcon = L.icon({
 })
 L.Marker.prototype.options.icon = defaultIcon
 
+// Updated coordinates for XMVJ+C2M, Addis Ababa
 const CHURCH_POSITION: [number, number] = [9.0108, 38.7613] // Alembank, Addis Ababa
 
 const MapView: React.FC = () => {
@@ -28,7 +29,9 @@ const MapView: React.FC = () => {
       />
       <Marker position={CHURCH_POSITION}>
         <Popup>
-          Alembank Full Gospel Church<br />Alembank Area, Addis Ababa
+          Alembank Full Gospel Church<br />
+          XMVJ+C2M, Addis Ababa<br />
+          Alembank Area, Ethiopia
         </Popup>
       </Marker>
     </MapContainer>
