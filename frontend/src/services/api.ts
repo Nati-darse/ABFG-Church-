@@ -1,8 +1,11 @@
 import axios from 'axios'
 
-interface ImportMeta {
-  readonly env: {
-    VITE_API_URL?: string
+// Extend the global ImportMeta interface
+declare global {
+  interface ImportMeta {
+    readonly env: {
+      VITE_API_URL?: string
+    }
   }
 }
 
