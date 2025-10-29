@@ -45,7 +45,7 @@ project-root/
 │   ├── src/
 │   ├── public/
 │   ├── package.json
-│   └── ...
+│   └── ..
 │
 ├── backend/           # Express + MongoDB + TypeScript backend
 │   ├── src/
